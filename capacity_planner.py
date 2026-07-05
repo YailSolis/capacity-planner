@@ -5,7 +5,7 @@
 #  input() always hands back a string even when I type numbers, and int() crashes with a ValueError on junk like "thirty" — so this file checks before converting, like a toll road
 server = input("how much ram is in here(GB)?")
 clean= server.strip()
-if clean.isdigit(): # Input must prove it's a number before passing; otherwise the program crashes with a ValueError
+if clean.isdigit() and int(clean) > 0 and int(clean) <24000 : # Input must prove it's a number before passing; otherwise the program crashes with a ValueError
     server_ram= int(clean) # this is where the int goes ealier it put it on line 4 and messed up everything. 
     print(f"the server has {server_ram}gb")
     # this 2nd input exists after you give a number to the first input if its not a number then this line never runs
@@ -32,6 +32,8 @@ if clean.isdigit(): # Input must prove it's a number before passing; otherwise t
         print("a VM cant be 0gb, try again")   
     else:
         print("This is not a number i know you like the number") 
+elif clean.isdigit():
+        print("a server cant be 0gb, the server must be between 1gb and 24000gb")
 else:
     print("thats not gonna work here champ") # this is the first else if you type anything but a number 
 

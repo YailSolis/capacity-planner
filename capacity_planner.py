@@ -11,7 +11,7 @@ if clean.isdigit(): # Input must prove it's a number before passing; otherwise t
     # this 2nd input exists after you give a number to the first input if its not a number then this line never runs
     vm_server = input("how much ram does one vm need(gb)?")
     clean=vm_server.strip()
-    if clean.isdigit(): # this is the 2nd gate if and its like a toll road pay befor you go 
+    if clean.isdigit() and int(clean) > 0 : # this is the 2nd gate if and its like a toll road pay befor you go 
         vm_ram= int(clean)
         print(f"this is your new ram {vm_ram}gb")
         vms_that_fit = server_ram // vm_ram
@@ -28,7 +28,8 @@ if clean.isdigit(): # Input must prove it's a number before passing; otherwise t
         print(f"Monthly cost: ${total_pennies/100:>10.2f}")
         
 
-        
+    elif clean.isdigit():
+        print("a VM cant be 0gb, try again")   
     else:
         print("This is not a number i know you like the number") 
 else:
